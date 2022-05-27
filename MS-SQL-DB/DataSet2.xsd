@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TreatmentConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TreatmentConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MS_SQL_DB.Properties.Settings.GlobalReference.Default.TreatmentConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TreatmentConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+	ISNULL(patient.txtPatientName, '') + ' ' + ISNULL(patient.txtPatientSecondName, '') + ' ' + ISNULL(patient.txtPatientSurname, '') as Фио,
+	patient.datBirthday as "Дата рождения",
+	patient.txtAddress as Адрес,
+	type_.txtTreatmentTypeName as Процедура,
+	set_.datDateBegin as Начало,
+	set_.datDateEnd as Окончание,
+	set_.intTreatmentSetCountFact as Проведено,
+	set_.intTreatmentSetCount as Назначено,
+	(set_.intTreatmentSetCount - set_.intTreatmentSetCountFact) as Осталось,
+	set_.txtTreatmentSetRoom as Кабинет,
+	visit.datTreatmentVisitDate as Дата
+FROM
+	tblPatient as patient,
+	tblTreatmentType as type_,
+	tblTreatmentSet as set_,
+	tblTreatmentVisit as visit
+WHERE
+	set_.intPatientId = patient.intPatientId
+	AND set_.intTreatmentTypeId = type_.intTreatmentTypeId
+	AND visit.intTreatmentSetId = set_.intTreatmentSetId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Фио" DataSetColumn="Фио" />
+              <Mapping SourceColumn="Дата рождения" DataSetColumn="Дата_рождения" />
+              <Mapping SourceColumn="Адрес" DataSetColumn="Адрес" />
+              <Mapping SourceColumn="Процедура" DataSetColumn="Процедура" />
+              <Mapping SourceColumn="Начало" DataSetColumn="Начало" />
+              <Mapping SourceColumn="Окончание" DataSetColumn="Окончание" />
+              <Mapping SourceColumn="Проведено" DataSetColumn="Проведено" />
+              <Mapping SourceColumn="Назначено" DataSetColumn="Назначено" />
+              <Mapping SourceColumn="Осталось" DataSetColumn="Осталось" />
+              <Mapping SourceColumn="Кабинет" DataSetColumn="Кабинет" />
+              <Mapping SourceColumn="Дата" DataSetColumn="Дата" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Фио" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnФио" msprop:Generator_ColumnPropNameInRow="Фио" msprop:Generator_ColumnPropNameInTable="ФиоColumn" msprop:Generator_UserColumnName="Фио" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="87" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_рождения" msdata:Caption="Дата рождения" msprop:Generator_ColumnVarNameInTable="columnДата_рождения" msprop:Generator_ColumnPropNameInRow="Дата_рождения" msprop:Generator_ColumnPropNameInTable="Дата_рожденияColumn" msprop:Generator_UserColumnName="Дата_рождения" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Адрес" msprop:Generator_ColumnVarNameInTable="columnАдрес" msprop:Generator_ColumnPropNameInRow="Адрес" msprop:Generator_ColumnPropNameInTable="АдресColumn" msprop:Generator_UserColumnName="Адрес" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Процедура" msprop:Generator_ColumnVarNameInTable="columnПроцедура" msprop:Generator_ColumnPropNameInRow="Процедура" msprop:Generator_ColumnPropNameInTable="ПроцедураColumn" msprop:Generator_UserColumnName="Процедура" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Начало" msprop:Generator_ColumnVarNameInTable="columnНачало" msprop:Generator_ColumnPropNameInRow="Начало" msprop:Generator_ColumnPropNameInTable="НачалоColumn" msprop:Generator_UserColumnName="Начало" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Окончание" msprop:Generator_ColumnVarNameInTable="columnОкончание" msprop:Generator_ColumnPropNameInRow="Окончание" msprop:Generator_ColumnPropNameInTable="ОкончаниеColumn" msprop:Generator_UserColumnName="Окончание" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Проведено" msprop:Generator_ColumnVarNameInTable="columnПроведено" msprop:Generator_ColumnPropNameInRow="Проведено" msprop:Generator_ColumnPropNameInTable="ПроведеноColumn" msprop:Generator_UserColumnName="Проведено" type="xs:int" minOccurs="0" />
+              <xs:element name="Назначено" msprop:Generator_ColumnVarNameInTable="columnНазначено" msprop:Generator_ColumnPropNameInRow="Назначено" msprop:Generator_ColumnPropNameInTable="НазначеноColumn" msprop:Generator_UserColumnName="Назначено" type="xs:int" minOccurs="0" />
+              <xs:element name="Осталось" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnОсталось" msprop:Generator_ColumnPropNameInRow="Осталось" msprop:Generator_ColumnPropNameInTable="ОсталосьColumn" msprop:Generator_UserColumnName="Осталось" type="xs:int" minOccurs="0" />
+              <xs:element name="Кабинет" msprop:Generator_ColumnVarNameInTable="columnКабинет" msprop:Generator_ColumnPropNameInRow="Кабинет" msprop:Generator_ColumnPropNameInTable="КабинетColumn" msprop:Generator_UserColumnName="Кабинет" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата" msprop:Generator_ColumnVarNameInTable="columnДата" msprop:Generator_ColumnPropNameInRow="Дата" msprop:Generator_ColumnPropNameInTable="ДатаColumn" msprop:Generator_UserColumnName="Дата" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

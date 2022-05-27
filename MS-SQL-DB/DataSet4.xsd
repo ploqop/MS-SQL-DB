@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet4" targetNamespace="http://tempuri.org/DataSet4.xsd" xmlns:mstns="http://tempuri.org/DataSet4.xsd" xmlns="http://tempuri.org/DataSet4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TreatmentConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TreatmentConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MS_SQL_DB.Properties.Settings.GlobalReference.Default.TreatmentConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TreatmentConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+	doc.txtDoctorName as Имя,
+	doc.txtSpecialist as Специальность,
+	doc.datDoctorWork as Дата_приёма_на_работу,
+	type_.txtTreatmentTypeName as Процедура,
+	pat.txtPatientName as Пациент,
+	set_.datDateBegin as Начало,
+	set_.datDateEnd as Конец
+FROM
+	tblDoctor as doc,
+	tblPatient as pat,
+	tblTreatmentType as type_,
+	tblTreatmentSet as set_
+WHERE
+	doc.intDoctorId = set_.intDoctorId
+	AND pat.intPatientId = set_.intPatientId
+	AND type_.intTreatmentTypeId = set_.intTreatmentTypeId
+ORDER BY
+	5</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Имя" DataSetColumn="Имя" />
+              <Mapping SourceColumn="Специальность" DataSetColumn="Специальность" />
+              <Mapping SourceColumn="Дата_приёма_на_работу" DataSetColumn="Дата_приёма_на_работу" />
+              <Mapping SourceColumn="Процедура" DataSetColumn="Процедура" />
+              <Mapping SourceColumn="Пациент" DataSetColumn="Пациент" />
+              <Mapping SourceColumn="Начало" DataSetColumn="Начало" />
+              <Mapping SourceColumn="Конец" DataSetColumn="Конец" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet4" msprop:Generator_UserDSName="DataSet4">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Имя" msprop:Generator_ColumnVarNameInTable="columnИмя" msprop:Generator_ColumnPropNameInRow="Имя" msprop:Generator_ColumnPropNameInTable="ИмяColumn" msprop:Generator_UserColumnName="Имя" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Специальность" msprop:Generator_ColumnVarNameInTable="columnСпециальность" msprop:Generator_ColumnPropNameInRow="Специальность" msprop:Generator_ColumnPropNameInTable="СпециальностьColumn" msprop:Generator_UserColumnName="Специальность" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_приёма_на_работу" msprop:Generator_ColumnVarNameInTable="columnДата_приёма_на_работу" msprop:Generator_ColumnPropNameInRow="Дата_приёма_на_работу" msprop:Generator_ColumnPropNameInTable="Дата_приёма_на_работуColumn" msprop:Generator_UserColumnName="Дата_приёма_на_работу" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Процедура" msprop:Generator_ColumnVarNameInTable="columnПроцедура" msprop:Generator_ColumnPropNameInRow="Процедура" msprop:Generator_ColumnPropNameInTable="ПроцедураColumn" msprop:Generator_UserColumnName="Процедура" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Пациент" msprop:Generator_ColumnVarNameInTable="columnПациент" msprop:Generator_ColumnPropNameInRow="Пациент" msprop:Generator_ColumnPropNameInTable="ПациентColumn" msprop:Generator_UserColumnName="Пациент" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Начало" msprop:Generator_ColumnVarNameInTable="columnНачало" msprop:Generator_ColumnPropNameInRow="Начало" msprop:Generator_ColumnPropNameInTable="НачалоColumn" msprop:Generator_UserColumnName="Начало" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Конец" msprop:Generator_ColumnVarNameInTable="columnКонец" msprop:Generator_ColumnPropNameInRow="Конец" msprop:Generator_ColumnPropNameInTable="КонецColumn" msprop:Generator_UserColumnName="Конец" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

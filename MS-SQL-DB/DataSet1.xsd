@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TreatmentConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TreatmentConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MS_SQL_DB.Properties.Settings.GlobalReference.Default.TreatmentConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TreatmentConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+	set_.txtTreatmentSetRoom,
+	visit.datTreatmentVisitDate,
+	patient.txtPatientName,
+	type_.txtTreatmentTypeName
+FROM
+	tblTreatmentVisit as visit,
+	tblTreatmentSet as set_,
+	tblPatient as patient,
+	tblTreatmentType as type_
+WHERE
+	set_.intPatientId = patient.intPatientId
+	AND set_.intTreatmentTypeId = type_.intTreatmentTypeId
+	AND visit.intTreatmentSetId = set_.intTreatmentSetId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="txtTreatmentSetRoom" DataSetColumn="txtTreatmentSetRoom" />
+              <Mapping SourceColumn="datTreatmentVisitDate" DataSetColumn="datTreatmentVisitDate" />
+              <Mapping SourceColumn="txtPatientName" DataSetColumn="txtPatientName" />
+              <Mapping SourceColumn="txtTreatmentTypeName" DataSetColumn="txtTreatmentTypeName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="txtTreatmentSetRoom" msprop:Generator_ColumnVarNameInTable="columntxtTreatmentSetRoom" msprop:Generator_ColumnPropNameInRow="txtTreatmentSetRoom" msprop:Generator_ColumnPropNameInTable="txtTreatmentSetRoomColumn" msprop:Generator_UserColumnName="txtTreatmentSetRoom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datTreatmentVisitDate" msprop:Generator_ColumnVarNameInTable="columndatTreatmentVisitDate" msprop:Generator_ColumnPropNameInRow="datTreatmentVisitDate" msprop:Generator_ColumnPropNameInTable="datTreatmentVisitDateColumn" msprop:Generator_UserColumnName="datTreatmentVisitDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="txtPatientName" msprop:Generator_ColumnVarNameInTable="columntxtPatientName" msprop:Generator_ColumnPropNameInRow="txtPatientName" msprop:Generator_ColumnPropNameInTable="txtPatientNameColumn" msprop:Generator_UserColumnName="txtPatientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="txtTreatmentTypeName" msprop:Generator_ColumnVarNameInTable="columntxtTreatmentTypeName" msprop:Generator_ColumnPropNameInRow="txtTreatmentTypeName" msprop:Generator_ColumnPropNameInTable="txtTreatmentTypeNameColumn" msprop:Generator_UserColumnName="txtTreatmentTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
